@@ -1,4 +1,3 @@
-import { findAllByTitle } from '@testing-library/react';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import sanityClient from '../client.js';
