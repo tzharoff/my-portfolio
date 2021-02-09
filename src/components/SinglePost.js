@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import sanityClient from '../client';
 import BlockContent from '@sanity/block-content-to-react';
+import Comments from './Comments';
+import Form from './form';
 
 export default function SinglePost() {
     const [ singlePost, setSinglePost] = useState(null);
@@ -20,7 +22,14 @@ export default function SinglePost() {
             },
             body,
             "name": author->name,
-            "authorImage": author-image
+            "authorImage": author-image,
+            "comments": *[_type == "comment" && singlePost.ref == ^.id && approved == true]{
+                _id,
+                name,
+                email,
+                comment,
+                _createdAt
+            }
         }`).then((data) => setSinglePost(data[0])).catch(console.error);
     }, [slug]);
 
@@ -58,6 +67,8 @@ export default function SinglePost() {
                     />
                 </div>
             </article>
+            <Comments comments={singlePost.comments} />
+            <Form _id={singlePost._id} />
         </main>
     );
 }
