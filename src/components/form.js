@@ -17,8 +17,8 @@ export default function Form ({_id}) {
         try {
           await fetch('/api/createComment', {
             method: 'POST',
-           body: JSON.stringify(data),
-           type: 'application/json'
+            body: JSON.stringify(data),
+            type: 'application/json'
           })  
           setIsSubmitting(false)
           setHasSubmitted(true)

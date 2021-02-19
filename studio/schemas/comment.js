@@ -5,6 +5,7 @@ export default {
     fields: [
         {
             name: 'name',
+            title: 'Name',
             type: 'string',
         },
         {
@@ -16,14 +17,17 @@ export default {
         {
             name: 'email',
             type: 'string',
+            title: 'Email',
         },
         {
             name: 'comment',
             type: 'text',
+            title: 'Comment'
         },
         {
             name: 'post',
             type: 'reference',
+            title: 'Reference',
             to: [{
                 type: 'post',
             }]

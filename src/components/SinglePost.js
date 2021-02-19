@@ -67,6 +67,7 @@ export default function SinglePost() {
                     />
                 </div>
             </article>
+            {console.log(`${singlePost.comments}`)}
             <Comments comments={singlePost.comments} />
             <Form _id={singlePost._id} />
         </main>
